@@ -1,0 +1,22 @@
+# Week 1: SOC Analyst Onboarding
+**Course:** CPSC 4584 | Special Topics in Information Security
+**Date:** August 31, 2026
+**Analyst:** Nfumu Mpiana
+
+---
+
+## Maplewood Asset I Consider Highest Risk
+
+The electronic health record (EHR) database represents the highest risk asset because it stores sensitive patient health information subject to regulatory compliance. A breach or ransomware attack on this system directly impacts the Confidentiality and Availability pillars of the CIA triad, threatening patient care continuity and data privacy.
+
+---
+
+## My Analyst Role Takeaway
+
+In practice, serving as a Tier 1 SOC analyst involves performing initial triage, verifying security alerts, and documenting preliminary evidence to determine severity. This role requires accurately filtering out false positives so that genuine incidents are promptly escalated for investigation and remediation.
+
+---
+
+## Career Track Selected
+
+Security Operations / Incident Response (SOC Analyst)
