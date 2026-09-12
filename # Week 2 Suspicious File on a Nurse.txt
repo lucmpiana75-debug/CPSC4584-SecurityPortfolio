@@ -1,0 +1,47 @@
+# Week 2: Suspicious File on a Nurse's Workstation
+**Course:** CPSC 4584 | Special Topics in Information Security
+**Date:** September 7, 2026
+**Analyst:** Nfumu Mpiana
+**Incident ID:** INC-2026-0907-001
+
+---
+
+## Incident Summary
+
+Nfumu Mpiana investigated an alert involving a file named `patient_notes.txt` that appeared at 3:14 AM in `/home/nurse01/` on a clinical workstation. The file had an execute permission, which is unexpected for a plain text file and requires further investigation.
+
+---
+
+## Key Findings
+
+**Permission Finding:** The file had `-rwxr--r--` permissions. The owner can read, write, and execute the file, while the group and others can only read it. The execute permission is unexpected for a text file.
+
+**File Type Finding:** The `file` command identified the practice file `.bashrc` as ASCII text.
+
+**Timestamp Finding:** The `stat` command showed the file's access, modify, change, and birth timestamps. The timestamps were all the same, showing no difference between the Modify and Change times.
+
+**Strings Finding:** The `strings` command displayed readable Bash commands and comments from `.bashrc`. This provided clues about the file's purpose without executing it.
+
+---
+
+## Terminal Commands Used
+
+| Command | Purpose |
+|---------|---------|
+| `pwd && ls -la` | Verified the current directory and listed the files present. |
+| `file .bashrc` | Identified the true type of the file. |
+| `stat .bashrc` | Provided metadata, ownership, permissions, and timestamps. |
+| `strings .bashrc \| head -10` | Displayed readable text that could provide clues about the file's purpose. |
+| `find . -mtime -1 -type f` | Identified files modified within the last day. |
+
+---
+
+## Escalation Recommendation
+
+I would escalate this alert to a Tier 2 analyst because the file appeared unexpectedly and has execute permissions. The file's creator and purpose remain unknown. Tier 2 should investigate its type, timestamps, contents, and related activity without executing it.
+
+---
+
+*CPSC 4584 | Governors State University | Fall 2026*
+
+**GitHub Portfolio:** `maplewood-labs/week02-suspicious-file.md`
